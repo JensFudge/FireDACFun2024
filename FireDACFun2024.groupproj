@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{6037E28C-93A8-4E7E-9B0A-7827F9BD534B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="QBE\QBEDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="UpdateSQL\UpdateSQL.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="QBEDemo">
+        <MSBuild Projects="QBE\QBEDemo.dproj"/>
+    </Target>
+    <Target Name="QBEDemo:Clean">
+        <MSBuild Projects="QBE\QBEDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="QBEDemo:Make">
+        <MSBuild Projects="QBE\QBEDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="UpdateSQL">
+        <MSBuild Projects="UpdateSQL\UpdateSQL.dproj"/>
+    </Target>
+    <Target Name="UpdateSQL:Clean">
+        <MSBuild Projects="UpdateSQL\UpdateSQL.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="UpdateSQL:Make">
+        <MSBuild Projects="UpdateSQL\UpdateSQL.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="QBEDemo;UpdateSQL"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="QBEDemo:Clean;UpdateSQL:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="QBEDemo:Make;UpdateSQL:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
