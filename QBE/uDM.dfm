@@ -26,7 +26,8 @@ object dmBiolife: TdmBiolife
       'User_Name=sysdba'
       'Password=masterkey'
       'DriverID=iB')
-    Connected = True
+    ConnectedStoredUsage = []
+    LoginPrompt = False
     Left = 88
     Top = 72
   end
