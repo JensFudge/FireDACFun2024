@@ -8,6 +8,8 @@ object dmSecurity: TdmSecurity
       'Password=masterkey'
       'DriverID=IB')
     ConnectedStoredUsage = []
+    Connected = True
+    LoginPrompt = False
     Left = 208
     Top = 136
   end
